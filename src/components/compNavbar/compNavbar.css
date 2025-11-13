@@ -1,0 +1,315 @@
+/* ===== Desktop Navbar ===== */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.navbar {
+  background: linear-gradient(90deg, #0a0a0f, #111126);
+  backdrop-filter: blur(10px);
+  padding: 1rem 5vw; /* flexible padding */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar-logo img {
+  height: 2.5rem; /* scales better */
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+  color: #242424;
+  position: relative;
+}
+
+.navbar-link {
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar .navbar-link {
+  margin-left: 2rem; /* spacing instead of hard 44px */
+}
+
+.navbar-link.active,
+.navbar-link:hover {
+  color: #fff;
+}
+
+.navbar-button button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background-color: #000;
+  transition: background 0.3s ease;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.navbar-button button:hover {
+  background: #5423D2;
+  color: #ffffff;
+  box-shadow:
+    0 0 5px #5423D2,
+    0 0 25px #5423D2,
+    0 0 50px #5423D2,
+    0 0 75px #5423D2,
+    0 0 200px #5423D2;
+}
+.vert-line {
+  width: 1px;
+  height: 35px;
+  background-color: #fff;
+  margin: 0 10px;
+}
+/* === Floating Neon Bars (Left & Right) === */
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: fixed;
+  bottom: 2rem;
+  z-index: 999;
+}
+
+.contact-wrapper.left {
+  left: 2rem;
+}
+
+.contact-wrapper.right {
+  right: 2rem;
+}
+
+.vert-line {
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(to bottom, #0ff, #00f);
+  animation: lineGrow 1.2s ease-in-out forwards;
+  box-shadow: 0 0 6px #0ff;
+}
+
+@keyframes lineGrow {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: 60px;
+    opacity: 1;
+  }
+}
+
+.contact-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #0ff;
+  border: 1.5px solid #0ff;
+  transition: all 0.3s ease;
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.icon-link:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 0 10px #0ff;
+  background-color: rgba(0, 255, 255, 0.1);
+  color: #fff;
+}
+
+.scroll-top {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+/* ===== Mobile & Tablet Styles ===== */
+@media (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+  }
+
+  .navbar-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 1000;
+  }
+
+  /* Enhanced slide-in animation for mobile menu */
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+    background: #000;
+    padding: 0;
+    border-radius: 0 0 8px 8px;
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+  }
+
+  .navbar-links.open {
+    max-height: 500px;
+    padding: 20px 0;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Staggered animation for menu items */
+  .navbar-links li {
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-links.open li {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .navbar-links.open li:nth-child(1) { transition-delay: 0.1s; }
+  .navbar-links.open li:nth-child(2) { transition-delay: 0.15s; }
+  .navbar-links.open li:nth-child(3) { transition-delay: 0.2s; }
+  .navbar-links.open li:nth-child(4) { transition-delay: 0.25s; }
+
+  .navbar-link {
+    padding: 12px 20px;
+    color: #7f7f7f;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-link:hover {
+    background-color: rgba(84, 35, 210, 0.1);
+    color: #fff;
+    padding-left: 30px;
+  }
+
+  /* Toggle desktop vs mobile buttons */
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
+    margin: 15px 20px 0;
+  }
+  .mobile-only button {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
+
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  /* Add backdrop blur effect when menu is open */
+  .navbar::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 998;
+  }
+
+  .navbar.menu-active::after {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* ===== Tiny phones (≤360px) ===== */
+@media (max-width: 360px) {
+  .navbar-links {
+    font-size: 0.8rem;
+  }
+  .navbar-button button {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+}
+
+/* ===== Larger phones (≤430px) ===== */
+@media (max-width: 430px) {
+  .navbar-link {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== Small tablets (481px–768px) ===== */
+@media (min-width: 481px) and (max-width: 768px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  .navbar-links {
+    font-size: 0.95rem;
+  }
+  .navbar-button button {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== Medium tablets (769px–1024px) ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar-links {
+    font-size: 1rem;
+  }
+  .navbar-button button {
+    font-size: 0.95rem;
+  }
+}
