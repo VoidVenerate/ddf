@@ -23,7 +23,7 @@ export default function compTestimonials() {
       company: 'Healthcare Tech Solutions',
       rating: 5,
       text: "Working with Emmanuel on the EMR system was a pleasure. His understanding of React.js and state management is impressive. He built a complex role-based system that handles sensitive healthcare data with security and usability in mind. His code is clean, well-documented, and maintainable.",
-      category: 'professional',
+      category: 'academic',
       highlight: 'Clean Code & Security Focus'
     },
     {
@@ -35,7 +35,19 @@ export default function compTestimonials() {
         text: "The HMO EMR system developed by Emmanuel has transformed our clinic operations. It's intuitive, secure, and allows us to manage patient records, appointments, and plans seamlessly. Our staff adapted quickly, and patient data management has never been smoother.",
         category: 'professional',
         highlight: 'Efficient Healthcare Management'
-    }
+    },
+    { 
+      id: 4,
+      name: "Tunde Adeyemi",
+      role: "Team Lead, Edulight Technologies",
+      company:"Edulight Technologies",
+      text:
+        "Emmanuel brings passion and precision to every project. His attention to detail and problem-solving skills are outstanding.",
+      category:"mentor",
+      rating: 4,
+      highlight: 'Efficient Intern'
+    },
+
     // Add other testimonials here...
   ];
 

@@ -282,3 +282,125 @@
 .tabs::-webkit-scrollbar-track {
   background: transparent;
 }
+/* ---------------------------- */
+/* MOBILE RESPONSIVENESS */
+/* ---------------------------- */
+
+/* Small screens (phones) */
+@media (max-width: 600px) {
+
+  /* HERO SECTION */
+  .about-hero {
+    padding: 60px 15px;
+  }
+
+  .gradient-text {
+    font-size: 30px;
+  }
+
+  .subtext {
+    font-size: 16px;
+  }
+
+  .intro-text {
+    padding: 0 10px;
+    font-size: 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* TABS */
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 10px;
+    padding: 0 10px;
+    overflow-x: unset; /* remove horizontal scroll */
+  }
+
+  .tab-btn {
+    text-align: center;
+    width: 100%;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0;
+  }
+
+  /* CONTENT BOX */
+  .tab-content {
+    padding: 0 10px;
+  }
+
+  .box {
+    padding: 18px;
+  }
+
+  /* SKILLS */
+  .skill-item {
+    margin-bottom: 15px;
+  }
+
+  .skill-top {
+    font-size: 14px;
+  }
+
+  /* EXPERIENCE */
+  .experience-card {
+    padding: 15px;
+  }
+
+  .company {
+    font-size: 15px;
+  }
+
+  .period {
+    font-size: 12px;
+  }
+
+  /* TRAITS */
+  .traits {
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .trait {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  /* ACHIEVEMENTS */
+  .achievements-list li {
+    font-size: 15px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 900px) {
+  .gradient-text {
+    font-size: 34px;
+  }
+
+  .about-hero {
+    padding: 70px 20px;
+  }
+
+  .profile-logo {
+    width: 95px;
+    height: 95px;
+    font-size: 34px;
+  }
+}

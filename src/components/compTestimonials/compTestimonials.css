@@ -226,3 +226,146 @@
   color: #ccc;
   margin-top: 0.25rem;
 }
+/* ---------------------------------- */
+/* MOBILE RESPONSIVENESS */
+/* ---------------------------------- */
+@media (max-width: 600px) {
+
+  /* Header */
+  .testimonials-header {
+    padding: 60px 15px;
+  }
+
+  .header-title {
+    font-size: 32px;
+  }
+
+  .header-subtitle {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+
+  .header-badge {
+    padding: 4px 12px;
+    font-size: 14px;
+  }
+
+  /* Category Filter */
+  .category-filter {
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .category-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  /* Carousel */
+  .carousel {
+    padding: 0 10px;
+  }
+
+  .carousel-card {
+    padding: 20px;
+  }
+
+  .carousel-text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .carousel-author img {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Nav buttons */
+  .carousel-nav {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+  }
+
+  .carousel-nav.prev {
+    left: -10px;
+  }
+
+  .carousel-nav.next {
+    right: -10px;
+  }
+
+  /* Dots */
+  .carousel-dots {
+    gap: 4px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dot.active {
+    width: 18px;
+  }
+
+  /* Stats Section */
+  .stats-section {
+    padding: 1.5rem 1rem;
+    margin: 2rem 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* ---------------------------------- */
+/* TABLET FRIENDLY WIDTHS */
+/* ---------------------------------- */
+@media (max-width: 900px) {
+
+  .header-title {
+    font-size: 40px;
+  }
+
+  .carousel-nav.prev {
+    left: -15px;
+  }
+
+  .carousel-nav.next {
+    right: -15px;
+  }
+
+  .carousel-card {
+    padding: 26px;
+  }
+}
+/* FORCE CAROUSEL NAV TO SHRINK ON SMALL SCREENS */
+@media (max-width: 600px) {
+  .carousel-nav {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 16px !important;
+    flex-shrink: 1 !important;
+  }
+
+  .carousel-nav.prev {
+    left: -6px !important;
+  }
+
+  .carousel-nav.next {
+    right: 6px !important;
+  }
+}

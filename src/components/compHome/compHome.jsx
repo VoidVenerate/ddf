@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./compHome.css";
 import profileImage from "../../assets/profile-pic.jpg";
+import { Link } from "react-scroll";
 
 const CompHome = () => {
   const texts = [
@@ -65,13 +66,26 @@ const CompHome = () => {
         {/* CTA buttons */}
         {textIndex >= texts.length && (
           <div className="cta-buttons">
-            <a href="#projects" className="btn-primary">
-              View Projects
-            </a>
-            <a href="#contact" className="btn-secondary">
-              Contact Me
-            </a>
-          </div>
+            <Link
+                to="projects"          // ID of the target section
+                smooth={true}          // smooth scrolling
+                duration={600}         // scroll duration in ms
+                offset={-80}           // optional: adjust for navbar height
+                className="btn-primary"
+            >
+                View Projects
+            </Link>
+
+            <Link
+                to="contact"
+                smooth={true}
+                duration={600}
+                offset={-80}
+                className="btn-secondary"
+            >
+                Contact Me
+            </Link>
+            </div>
         )}
       </motion.div>
 
