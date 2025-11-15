@@ -9,14 +9,14 @@ export default function compProjects() {
       tech: ["React.js", "CSS3", "HTML5"],
       desc: "Fully responsive platform for scheduling and managing events, including user registration and ticketing.",
       github: "https://github.com/VoidVenerate",
-      live: "#",
+      live: "https://scintillating-starburst-9ef518.netlify.app/",
     },
     {
       name: "DaaHub - News Website",
       tech: ["React.js", "UI/UX"],
       desc: "A modern news website providing updates on global events with light/dark theme.",
       github: "https://github.com/VoidVenerate",
-      live: "#",
+      live: "https://daahub.netlify.app/",
     },
     {
       name: "Electronic Medical Records (HMO)",
@@ -30,7 +30,7 @@ export default function compProjects() {
       tech: ["React.js", "HTML5", "CSS3"],
       desc: "Responsive informational website with course listings, campus info, and admission details.",
       github: "https://github.com/VoidVenerate",
-      live: "#",
+      live: "https://edusity-po.netlify.app/",
     },
     {
       name: "Barbershop Website",
@@ -58,7 +58,7 @@ export default function compProjects() {
       tech: ["React", "CSS", "JavaScript"],
       desc: "Developed the full website for PhoenixPath Mental Health Services, a telepsychiatry and counseling provider.",
       github: "https://github.com/VoidVenerate",
-      live: "#",
+      live: "https://phoenixpathmhs.com/",
     },
   ];
 
