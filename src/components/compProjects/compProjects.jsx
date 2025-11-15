@@ -53,6 +53,13 @@ export default function compProjects() {
       github: "https://github.com/VoidVenerate",
       live: "#",
     },
+    {
+      name: "PheonixPath Wellness",
+      tech: ["React", "CSS", "JavaScript"],
+      desc: "Developed the full website for PhoenixPath Mental Health Services, a telepsychiatry and counseling provider.",
+      github: "https://github.com/VoidVenerate",
+      live: "#",
+    },
   ];
 
   return (

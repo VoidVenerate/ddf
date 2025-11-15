@@ -47,6 +47,17 @@ export default function compTestimonials() {
       rating: 4,
       highlight: 'Efficient Intern'
     },
+    { 
+      id: 5,
+      name: "PhoenixPath Wellness",
+      role: "Client — Mental Health Telepsychiatry Practice",
+      company:"PhoenixPath Wellness",
+      text:
+        "Working with Emmanuel was an exceptional experience from start to finish. He transformed our scattered content into a professional, compassionate, and beautifully structured website that clearly represents our mission at PhoenixPath. He captured our vision for accessible, evidence-based mental health care and presented it in a way that feels warm, trustworthy, and easy for clients to understand. The layout, service descriptions, and overall flow of the site reflect our values perfectly. Emmanuel’s attention to detail, communication, and ability to translate complex healthcare information into a user-friendly design made this project seamless. We are incredibly pleased with the final result.",
+      category:"professional",
+      rating: 5,
+      highlight: 'Professional, compassionate, and perfectly executed website design.'
+    },
 
     // Add other testimonials here...
   ];
@@ -143,7 +154,7 @@ export default function compTestimonials() {
         <div className="stats-container">
             <div className="stat">
             <Users size={36} className="stat-icon" />
-            <div className="stat-value">3+</div>
+            <div className="stat-value">4+</div>
             <div className="stat-label">Testimonials</div>
             </div>
             <div className="stat">
@@ -153,7 +164,7 @@ export default function compTestimonials() {
             </div>
             <div className="stat">
             <Briefcase size={36} className="stat-icon" />
-            <div className="stat-value">1</div>
+            <div className="stat-value">3</div>
             <div className="stat-label">Projects Delivered</div>
             </div>
             <div className="stat">
