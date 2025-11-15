@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 .navbar {
+  position: fixed;      /* Stick to top */
+  top: 0;               /* Align at top */
+  left: 0;
+  width: 100%;
+  z-index: 999;
   background: linear-gradient(90deg, #0a0a0f, #111126);
   backdrop-filter: blur(10px);
   padding: 1rem 5vw; /* flexible padding */
@@ -35,6 +40,9 @@
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
+  background: transparent;
+  border: none;
+  font-size: 16px;
 }
 
 .navbar .navbar-link {

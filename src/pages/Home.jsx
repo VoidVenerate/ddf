@@ -3,7 +3,7 @@ import CompHome from '../components/compHome/compHome'
 
 const Home = () => {
   return (
-    <div>
+    <div id='home'>
         <CompHome/>
     </div>
   )

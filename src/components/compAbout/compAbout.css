@@ -1,0 +1,284 @@
+/* ---------------------------- */
+/* MAIN CONTAINER & ANIMATIONS */
+/* ---------------------------- */
+.about-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0f, #150022, #0a0014);
+  color: white;
+  padding-bottom: 80px;
+  font-family: "Grotesk", sans-serif;
+}
+
+/* HERO SECTION */
+.about-hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.profile-logo {
+  width: 110px;
+  height: 110px;
+  background: linear-gradient(135deg, #7a3cff, #ff2da6);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 20px rgba(138, 76, 255, 0.4);
+}
+
+.gradient-text {
+  font-size: 40px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #b57aff, #ff6ad5);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtext {
+  font-size: 20px;
+  color: #caa9ff;
+  margin-top: 5px;
+}
+
+.intro-text {
+  color: #ccc;
+  max-width: 650px;
+  margin: 15px auto;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-primary {
+  background: #9b4dff;
+  padding: 10px 25px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #b26bff;
+}
+
+.btn-outline {
+  border: 1px solid #c883ff;
+  padding: 10px 25px;
+  border-radius: 8px;
+  color: #d8b7ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background: rgba(200, 150, 255, 0.1);
+}
+
+/* ---------------------------- */
+/* TABS */
+/* ---------------------------- */
+.tabs {
+  margin: 40px auto;
+  max-width: 800px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 10px 18px;
+  color: #aaa;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.tab-btn.active {
+  color: #d29aff;
+  border-bottom: 2px solid #d29aff;
+}
+
+/* ---------------------------- */
+/* CONTENT BOXES */
+/* ---------------------------- */
+.tab-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(200, 150, 255, 0.2);
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #d6baff;
+  margin-bottom: 20px;
+}
+
+/* ---------------------------- */
+/* SKILLS */
+/* ---------------------------- */
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.percent {
+  color: #d29aff;
+}
+
+.progress {
+  height: 8px;
+  background: #2e1a41;
+  border-radius: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #a86cff, #ff52c2);
+  border-radius: 10px;
+  transition: width 0.6s ease;
+}
+
+/* ---------------------------- */
+/* EXPERIENCE */
+/* ---------------------------- */
+.experience-card {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(180, 120, 255, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.experience-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(138, 76, 255, 0.3);
+}
+
+.company {
+  color: #caa0ff;
+  font-weight: bold;
+}
+
+.period {
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* ---------------------------- */
+/* TRAITS (OVERVIEW) */
+/* ---------------------------- */
+.traits {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.trait {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(180, 120, 255, 0.15);
+  font-weight: 500;
+  cursor: default;
+}
+
+.icon-purple {
+  color: #b57aff;
+}
+
+.icon-pink {
+  color: #ff6ad5;
+}
+
+.icon-blue {
+  color: #6dcfff;
+}
+
+/* ---------------------------- */
+/* ACHIEVEMENTS */
+/* ---------------------------- */
+.achievements-list li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #eacbff;
+  font-weight: 500;
+}
+
+.award-icon {
+  color: #ffdf7e;
+}
+
+/* ---------------------------- */
+/* ANIMATIONS & TRANSITIONS */
+/* ---------------------------- */
+.fade-in {
+  animation: fadeIn 0.45s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SCROLLBAR FIX FOR TABS */
+.tabs::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tabs::-webkit-scrollbar-thumb {
+  background: #7a3cff88;
+  border-radius: 3px;
+}
+
+.tabs::-webkit-scrollbar-track {
+  background: transparent;
+}

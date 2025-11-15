@@ -49,7 +49,7 @@ const CompHome = () => {
   };
 
   return (
-    <section id="home" className="hero">
+    <section id="home-section" className="hero">
       <motion.div
         className="hero-text"
         initial={{ opacity: 0, y: -50 }}
