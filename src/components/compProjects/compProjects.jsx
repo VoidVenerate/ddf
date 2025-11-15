@@ -23,7 +23,6 @@ export default function compProjects() {
       tech: ["React.js", "UI/UX", "Responsive Design"],
       desc: "Web-based EMR system for Admin, Hospital Staff, and Patients with dark-themed UI.",
       github: "https://github.com/VoidVenerate",
-      live: "#",
     },
     {
       name: "Edusity University Website",
@@ -35,23 +34,20 @@ export default function compProjects() {
     {
       name: "Barbershop Website",
       tech: ["HTML", "CSS", "JavaScript"],
-      desc: "Landing page for a barbershop with interactive appointment booking features.",
+      desc: "Website for a barbershop with interactive appointment booking features.",
       github: "https://github.com/VoidVenerate",
-      live: "#",
     },
     {
       name: "Password Generator",
       tech: ["HTML", "CSS", "JavaScript"],
       desc: "Web app to generate secure passwords with copy-to-clipboard functionality.",
       github: "https://github.com/VoidVenerate",
-      live: "#",
     },
     {
       name: "To-Do List App",
       tech: ["HTML", "CSS", "JavaScript"],
       desc: "Dynamic to-do list app with add/edit/delete tasks and interactive UI.",
       github: "https://github.com/VoidVenerate",
-      live: "#",
     },
     {
       name: "PheonixPath Wellness",
