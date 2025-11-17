@@ -22,7 +22,7 @@ const CompHome = () => {
         const timeout = setTimeout(() => {
           setCurrentText((prev) => prev + texts[textIndex].text[charIndex]);
           setCharIndex(charIndex + 1);
-        }, 100);
+        }, 50);
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
