@@ -71,7 +71,7 @@ const CompHome = () => {
                 smooth={true}          // smooth scrolling
                 duration={600}         // scroll duration in ms
                 offset={-80}           // optional: adjust for navbar height
-                className="btn-primary"
+                className="btn-primarys"
             >
                 View Projects
             </Link>

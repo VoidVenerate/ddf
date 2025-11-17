@@ -11,6 +11,19 @@
   background: linear-gradient(90deg, #0a0a0f, #111126); /* Gradient like navbar */
   color: #fff;
 }
+.btn-primarys {
+  background: #9b4dff;
+  padding: 10px 25px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-primarys:hover {
+  background: #b26bff;
+}
 
 @media (min-width: 768px) {
   .hero {
@@ -93,19 +106,6 @@
   margin-top: 20px;
 }
 
-.btn-primary {
-  padding: 10px 20px;
-  background-color: white;
-  color: #6a0dad;
-  font-weight: bold;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #ddd;
-}
 
 .btn-secondary {
   padding: 10px 20px;
@@ -143,6 +143,13 @@
   .hero-image img {
     width: 300px;
     height: 300px;
+  }
+}
+@media (max-width: 600px) {
+  .btn-primarys,
+  .btn-outline {
+    width: 40%;
+    text-align: center;
   }
 }
 
