@@ -1,122 +1,114 @@
-import React, { useState } from 'react';
-import { Phone, Mail, Github, Linkedin, ArrowUp, Pointer } from 'lucide-react';
-import { Link, animateScroll as scroll } from 'react-scroll';
-import './compNavbar.css';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { Link, animateScroll as scroll } from "react-scroll";
+import "./compNavbar.css";
 
-const CompNavbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const EASE_OUT = [0.4, 0, 0.2, 1];
 
-  const toggleMenu = () => {
-    setMenuOpen((prev) => {
-      const newState = !prev;
-      document.body.classList.toggle('menu-open', newState);
-      return newState;
-    });
-  };
+const NAV_LINKS = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" }
+];
 
-  const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'testimonials', label: 'Testimonials' },
-    { id: 'contact', label: 'Contact' },
-  ];
+export default function CompNavbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToTop = () => {
-    scroll.scrollToTop({ duration: 600, smooth: 'easeInOutQuad' });
+    scroll.scrollToTop({ duration: 600, smooth: "easeInOutQuad" });
   };
 
   return (
     <>
-      <nav className="navbar">
-        <div className="navbar-header">
-          <div className="navbar-logo">
-            <img src="/ddf-logo.png" alt="DDF Logo" />
-          </div>
+      <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="navbar-container">
+          <button className="logo" onClick={scrollToTop}>
+            ED
+          </button>
 
-          <div
-            className={`hamburger ${menuOpen ? 'open' : ''}`}
-            onClick={toggleMenu}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-
-        <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
-          {navLinks.map(({ id, label }) => (
-            <li key={id} style={{cursor: 'pointer'}}>
+          <nav className="nav-desktop">
+            {NAV_LINKS.map((link) => (
               <Link
-                to={id}
-                spy={true}           // Active link tracking
-                smooth={true}        // Smooth scroll
-                offset={-80}         // Optional: adjust for navbar height
-                duration={600}       // Scroll duration
-                className="navbar-link"
-                activeClass="active" // Add 'active' class when section in view
-                onClick={() => setMenuOpen(false)}
+                key={link.id}
+                to={link.id}
+                spy={true}
+                smooth={true}
+                duration={600}
+                offset={-80}
+                activeClass="active"
+                className="nav-link"
               >
-                {label}
+                {link.label}
               </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+            ))}
+          </nav>
 
-      {/* Left Floating Contact Bar */}
-      <div className="contact-wrapper left">
-        <div className="vert-line"></div>
-        <ul className="contact-icons">
-          <li>
-            <a href="tel:+2349014345902" className="icon-link">
-              <Phone size={18} />
-            </a>
-          </li>
-          <li>
-            <a
-              href="mailto:dadaoluwawamiri@gmail.com"
-              className="icon-link"
-            >
-              <Mail size={18} />
-            </a>
-          </li>
-        </ul>
-      </div>
+          <button 
+            className="menu-toggle"
+            onClick={() => setIsMobileMenuOpen(true)}
+            aria-label="Open menu"
+          >
+            <Menu size={24} />
+          </button>
+        </div>
+      </header>
 
-      {/* Right Floating Social Bar */}
-      <div className="contact-wrapper right">
-        <div className="vert-line"></div>
-        <ul className="contact-icons">
-          <li>
-            <a
-              href="https://github.com/VoidVenerate"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-link"
-            >
-              <Github size={18} />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://linkedin.com/in/emmanuel-dada-29986324a"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-link"
-            >
-              <Linkedin size={18} />
-            </a>
-          </li>
-          <li>
-            <button className="icon-link scroll-top" onClick={scrollToTop}>
-              <ArrowUp size={18} />
-            </button>
-          </li>
-        </ul>
-      </div>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            className="mobile-menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="mobile-menu-header">
+              <span className="logo">ED</span>
+              <button 
+                className="menu-close"
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            <nav className="nav-mobile">
+              {NAV_LINKS.map((link, i) => (
+                <motion.div
+                  key={link.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.05, ease: EASE_OUT }}
+                >
+                  <Link
+                    to={link.id}
+                    spy={true}
+                    smooth={true}
+                    duration={600}
+                    offset={-80}
+                    className="nav-link-mobile"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
-};
-
-export default CompNavbar;
+}

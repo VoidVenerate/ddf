@@ -1,79 +1,74 @@
-import React, { useState } from 'react';
-import { Star, Quote, ChevronLeft, ChevronRight, Briefcase, GraduationCap, Users, Heart } from 'lucide-react';
-import './compTestimonials.css';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Quote, ChevronLeft, ChevronRight, Briefcase, GraduationCap, Users } from "lucide-react";
+import "./compTestimonials.css";
 
-export default function compTestimonials() {
+const EASE_OUT = [0.4, 0, 0.2, 1];
+
+const TESTIMONIALS = [
+  {
+    id: 1,
+    name: "Mrs Chinenye",
+    role: "Product Manager",
+    company: "TurnUp Nigeria",
+    text: "Emmanuel was instrumental in bringing our event platform to life. His attention to detail and ability to translate design concepts into pixel-perfect interfaces is exceptional. He consistently delivered high-quality code and was always proactive in suggesting improvements to enhance user experience.",
+    category: "professional"
+  },
+  {
+    id: 2,
+    name: "Dr. Michael Okonkwo",
+    role: "Senior Developer",
+    company: "Healthcare Tech Solutions",
+    text: "Working with Emmanuel on the EMR system was a pleasure. His understanding of React.js and state management is impressive. He built a complex role-based system that handles sensitive healthcare data with security and usability in mind. His code is clean, well-documented, and maintainable.",
+    category: "academic"
+  },
+  {
+    id: 3,
+    name: "Olufunke Adebayo",
+    role: "Healthcare Administrator",
+    company: "HealthyLife Clinics",
+    text: "The HMO EMR system developed by Emmanuel has transformed our clinic operations. It is intuitive, secure, and allows us to manage patient records, appointments, and plans seamlessly. Our staff adapted quickly, and patient data management has never been smoother.",
+    category: "professional"
+  },
+  {
+    id: 4,
+    name: "Tunde Adeyemi",
+    role: "Team Lead",
+    company: "Edulight Technologies",
+    text: "Emmanuel brings passion and precision to every project. His attention to detail and problem-solving skills are outstanding. He consistently delivered beyond expectations.",
+    category: "mentor"
+  },
+  {
+    id: 5,
+    name: "PhoenixPath Wellness",
+    role: "Mental Health Practice",
+    company: "PhoenixPath Wellness",
+    text: "Working with Emmanuel was an exceptional experience from start to finish. He transformed our scattered content into a professional, compassionate, and beautifully structured website. He captured our vision for accessible mental health care and presented it in a way that feels warm and trustworthy. His attention to detail and communication made this project seamless.",
+    category: "professional"
+  }
+];
+
+const CATEGORIES = [
+  { id: "all", label: "All", icon: Users },
+  { id: "professional", label: "Professional", icon: Briefcase },
+  { id: "academic", label: "Academic", icon: GraduationCap },
+  { id: "mentor", label: "Mentorship", icon: Users }
+];
+
+export default function CompTestimonials() {
+  const [activeCategory, setActiveCategory] = useState("all");
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const testimonials = [
-    {
-      id: 1,
-      name: 'Sarah Adeyemi',
-      role: 'Product Manager',
-      company: 'TurnUp Nigeria',
-      rating: 5,
-      text: "Emmanuel was instrumental in bringing our event platform to life. His attention to detail and ability to translate design concepts into pixel-perfect interfaces is exceptional. He consistently delivered high-quality code and was always proactive in suggesting improvements to enhance user experience.",
-      category: 'professional',
-      highlight: 'Technical Excellence & Collaboration'
-    },
-    {
-      id: 2,
-      name: 'Dr. Michael Okonkwo',
-      role: 'Senior Developer',
-      company: 'Healthcare Tech Solutions',
-      rating: 5,
-      text: "Working with Emmanuel on the EMR system was a pleasure. His understanding of React.js and state management is impressive. He built a complex role-based system that handles sensitive healthcare data with security and usability in mind. His code is clean, well-documented, and maintainable.",
-      category: 'academic',
-      highlight: 'Clean Code & Security Focus'
-    },
-    {
-        id: 3,
-        name: 'Olufunke Adebayo',
-        role: 'Healthcare Administrator',
-        company: 'HealthyLife Clinics',
-        rating: 5,
-        text: "The HMO EMR system developed by Emmanuel has transformed our clinic operations. It's intuitive, secure, and allows us to manage patient records, appointments, and plans seamlessly. Our staff adapted quickly, and patient data management has never been smoother.",
-        category: 'professional',
-        highlight: 'Efficient Healthcare Management'
-    },
-    { 
-      id: 4,
-      name: "Tunde Adeyemi",
-      role: "Team Lead, Edulight Technologies",
-      company:"Edulight Technologies",
-      text:
-        "Emmanuel brings passion and precision to every project. His attention to detail and problem-solving skills are outstanding.",
-      category:"mentor",
-      rating: 4,
-      highlight: 'Efficient Intern'
-    },
-    { 
-      id: 5,
-      name: "PhoenixPath Wellness",
-      role: "Client — Mental Health Telepsychiatry Practice",
-      company:"PhoenixPath Wellness",
-      text:
-        "Working with Emmanuel was an exceptional experience from start to finish. He transformed our scattered content into a professional, compassionate, and beautifully structured website that clearly represents our mission at PhoenixPath. He captured our vision for accessible, evidence-based mental health care and presented it in a way that feels warm, trustworthy, and easy for clients to understand. The layout, service descriptions, and overall flow of the site reflect our values perfectly. Emmanuel’s attention to detail, communication, and ability to translate complex healthcare information into a user-friendly design made this project seamless. We are incredibly pleased with the final result.",
-      category:"professional",
-      rating: 5,
-      highlight: 'Professional, compassionate, and perfectly executed website design.'
-    },
+  const filteredTestimonials = activeCategory === "all"
+    ? TESTIMONIALS
+    : TESTIMONIALS.filter(t => t.category === activeCategory);
 
-    // Add other testimonials here...
-  ];
+  const currentTestimonial = filteredTestimonials[currentIndex];
 
-  const categories = [
-    { id: 'all', label: 'All', icon: Users },
-    { id: 'professional', label: 'Professional', icon: Briefcase },
-    { id: 'academic', label: 'Academic', icon: GraduationCap },
-    { id: 'mentor', label: 'Mentorship', icon: Users }
-  ];
-
-  const [activeCategory, setActiveCategory] = useState('all');
-
-  const filteredTestimonials = activeCategory === 'all'
-    ? testimonials
-    : testimonials.filter(t => t.category === activeCategory);
+  const handleCategoryChange = (categoryId) => {
+    setActiveCategory(categoryId);
+    setCurrentIndex(0);
+  };
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % filteredTestimonials.length);
@@ -83,97 +78,119 @@ export default function compTestimonials() {
     setCurrentIndex((prev) => (prev - 1 + filteredTestimonials.length) % filteredTestimonials.length);
   };
 
-  const currentTestimonial = filteredTestimonials[currentIndex];
+  const goToTestimonial = (index) => {
+    setCurrentIndex(index);
+  };
 
   return (
-    <div className="testimonials-container">
-      {/* Header */}
-      <div className="testimonials-header">
-        <div className="header-badge">
-          <Quote size={20} className="quote-icon" />
-          <span>What People Say</span>
-        </div>
-        <h1 className="header-title">Testimonials</h1>
-        <p className="header-subtitle">Feedback from colleagues, mentors, and students I've worked with</p>
-      </div>
+    <section id="testimonials" className="testimonials">
+      <div className="testimonials-container">
+        <motion.div 
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: EASE_OUT }}
+        >
+          <h2 className="section-title">Testimonials</h2>
+          <p className="section-subtitle">
+            Feedback from colleagues, mentors, and clients I have worked with.
+          </p>
+        </motion.div>
 
-      {/* Category Filter */}
-      <div className="category-filter">
-        {categories.map(category => {
-          const Icon = category.icon;
-          return (
-            <button
-              key={category.id}
-              onClick={() => {
-                setActiveCategory(category.id);
-                setCurrentIndex(0);
-              }}
-              className={`category-btn ${activeCategory === category.id ? 'active' : ''}`}
+        {/* Category Filter */}
+        <div className="filter-bar">
+          {CATEGORIES.map((category) => {
+            const Icon = category.icon;
+            const isActive = activeCategory === category.id;
+            
+            return (
+              <button
+                key={category.id}
+                onClick={() => handleCategoryChange(category.id)}
+                className={`filter-pill ${isActive ? "active" : ""}`}
+              >
+                <Icon size={16} />
+                <span>{category.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Testimonial Card */}
+        <div className="testimonial-wrapper">
+          <AnimatePresence mode="wait">
+            <motion.article
+              key={`${activeCategory}-${currentIndex}`}
+              className="testimonial-card"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: EASE_OUT }}
             >
-              <Icon size={16} />
-              {category.label}
-            </button>
-          );
-        })}
-      </div>
+              <Quote size={32} className="quote-icon" />
+              
+              <blockquote className="testimonial-text">
+                {currentTestimonial.text}
+              </blockquote>
 
-      {/* Carousel */}
-      <div className="carousel">
-        <div className="carousel-card">
-          <Quote className="carousel-quote" size={48} />
-          <div className="carousel-stars">
-            {[...Array(currentTestimonial.rating)].map((_, i) => (
-              <Star key={i} className="star" size={24} />
-            ))}
-          </div>
-          <p className="carousel-text">"{currentTestimonial.text}"</p>
-          <div className="carousel-highlight">✨ {currentTestimonial.highlight}</div>
-          <div className="carousel-author">
-            <div>
-              <h3>{currentTestimonial.name}</h3>
-              <p>{currentTestimonial.role}</p>
-              <p>{currentTestimonial.company}</p>
+              <footer className="testimonial-footer">
+                <div className="testimonial-author">
+                  <span className="author-name">{currentTestimonial.name}</span>
+                  <span className="author-role">{currentTestimonial.role}</span>
+                  <span className="author-company">{currentTestimonial.company}</span>
+                </div>
+              </footer>
+            </motion.article>
+          </AnimatePresence>
+
+          {/* Navigation */}
+          <div className="testimonial-nav">
+            <button 
+              className="nav-btn"
+              onClick={prevTestimonial}
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            <div className="testimonial-dots">
+              {filteredTestimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`dot ${idx === currentIndex ? "active" : ""}`}
+                  onClick={() => goToTestimonial(idx)}
+                  aria-label={`Go to testimonial ${idx + 1}`}
+                />
+              ))}
             </div>
+
+            <button 
+              className="nav-btn"
+              onClick={nextTestimonial}
+              aria-label="Next testimonial"
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
         </div>
-        <button className="carousel-nav prev" onClick={prevTestimonial}><ChevronLeft size={24} /></button>
-        <button className="carousel-nav next" onClick={nextTestimonial}><ChevronRight size={24} /></button>
-        <div className="carousel-dots">
-          {filteredTestimonials.map((_, idx) => (
-            <span
-              key={idx}
-              onClick={() => setCurrentIndex(idx)}
-              className={`dot ${idx === currentIndex ? 'active' : ''}`}
-            />
-          ))}
+
+        {/* Stats */}
+        <div className="testimonial-stats">
+          <div className="stat-item">
+            <span className="stat-number">{TESTIMONIALS.length}</span>
+            <span className="stat-label">Testimonials</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-number">3</span>
+            <span className="stat-label">Categories</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-number">100%</span>
+            <span className="stat-label">Response Rate</span>
+          </div>
         </div>
       </div>
-      {/* Stats Section */}
-        {/* Stats Section */}
-        <div className="stats-section">
-        <div className="stats-container">
-            <div className="stat">
-            <Users size={36} className="stat-icon" />
-            <div className="stat-value">4+</div>
-            <div className="stat-label">Testimonials</div>
-            </div>
-            <div className="stat">
-            <Star size={36} className="stat-icon" />
-            <div className="stat-value">5.0</div>
-            <div className="stat-label">Average Rating</div>
-            </div>
-            <div className="stat">
-            <Briefcase size={36} className="stat-icon" />
-            <div className="stat-value">3</div>
-            <div className="stat-label">Projects Delivered</div>
-            </div>
-            <div className="stat">
-            <Heart size={36} className="stat-icon" />
-            <div className="stat-value">100%</div>
-            <div className="stat-label">Client Satisfaction</div>
-            </div>
-        </div>
-        </div>
-    </div>
+    </section>
   );
 }

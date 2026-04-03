@@ -1,114 +1,162 @@
-import React from "react";
-import { Github, ExternalLink, Code } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Github, ExternalLink, Folder } from "lucide-react";
 import "./compProjects.css";
 
-export default function compProjects() {
-  const projects = [
-    {
-      name: "TurnUp Lagos",
-      tech: ["React.js", "CSS3", "HTML5"],
-      desc: "Fully responsive platform for scheduling and managing events, including user registration and ticketing.",
-      github: "https://github.com/VoidVenerate",
-      live: "https://scintillating-starburst-9ef518.netlify.app/",
-    },
-    {
-      name: "DaaHub - News Website",
-      tech: ["React.js", "UI/UX"],
-      desc: "A modern news website providing updates on global events with light/dark theme.",
-      github: "https://github.com/VoidVenerate",
-      live: "https://daahub.netlify.app/",
-    },
-    {
-      name: "Electronic Medical Records (HMO)",
-      tech: ["React.js", "UI/UX", "Responsive Design"],
-      desc: "Web-based EMR system for Admin, Hospital Staff, and Patients with dark-themed UI.",
-      github: "https://github.com/VoidVenerate",
-    },
-    {
-      name: "Edusity University Website",
-      tech: ["React.js", "HTML5", "CSS3"],
-      desc: "Responsive informational website with course listings, campus info, and admission details.",
-      github: "https://github.com/VoidVenerate",
-      live: "https://edusity-po.netlify.app/",
-    },
-    {
-      name: "Barbershop Website",
-      tech: ["HTML", "CSS", "JavaScript"],
-      desc: "Website for a barbershop with interactive appointment booking features.",
-      github: "https://github.com/VoidVenerate",
-    },
-    {
-      name: "Password Generator",
-      tech: ["HTML", "CSS", "JavaScript"],
-      desc: "Web app to generate secure passwords with copy-to-clipboard functionality.",
-      github: "https://github.com/VoidVenerate",
-    },
-    {
-      name: "To-Do List App",
-      tech: ["HTML", "CSS", "JavaScript"],
-      desc: "Dynamic to-do list app with add/edit/delete tasks and interactive UI.",
-      github: "https://github.com/VoidVenerate",
-    },
-    {
-      name: "PheonixPath Wellness",
-      tech: ["React", "CSS", "JavaScript"],
-      desc: "Developed the full website for PhoenixPath Mental Health Services, a telepsychiatry and counseling provider.",
-      github: "https://github.com/VoidVenerate",
-      live: "https://phoenixpathmhs.com/",
-    },
-  ];
+const EASE_OUT = [0.4, 0, 0.2, 1];
+
+const PROJECTS = [
+  {
+    id: "turnup",
+    title: "TurnUp Lagos",
+    description: "Event management platform with real-time ticketing and 3D venue previews. Handles 10,000+ concurrent users.",
+    technologies: ["React", "Three.js", "Node.js", "PostgreSQL"],
+    live: "https://turnuplagos.com/",
+    featured: true
+  },
+  {
+    id: "daahub",
+    title: "DaaHub News",
+    description: "AI-curated news aggregator with dark mode and gesture navigation. 50,000+ monthly active users.",
+    technologies: ["React", "TypeScript", "Framer Motion"],
+    github: "https://github.com/VoidVenerate",
+    live: "https://daahub.netlify.app/",
+    featured: false
+  },
+  {
+    id: "emr",
+    title: "EMR Health System",
+    description: "HIPAA-compliant medical records system with role-based access control and analytics dashboard.",
+    technologies: ["React", "PostgreSQL", "Express", "Tailwind"],
+    github: "https://github.com/VoidVenerate",
+    live: null,
+    featured: false
+  },
+  {
+    id: "phoenix",
+    title: "PhoenixPath Wellness",
+    description: "Mental health platform with appointment booking and therapist matching algorithm.",
+    technologies: ["React", "Node.js", "PostgreSQL"],
+    github: "https://github.com/VoidVenerate",
+    live: "https://phoenixpathmhs.com/",
+    featured: false
+  },
+  {
+    id: "emg",
+    title: "Exodus Music Group",
+    description: "Mental health platform with appointment booking and therapist matching algorithm.",
+    technologies: ["React", "Node.js", "PostgreSQL"],
+    github: "https://github.com/VoidVenerate",
+    live: "https://exodusmg.com/",
+    featured: false
+  }
+];
+
+export default function CompProjects() {
+  const [hoveredId, setHoveredId] = useState(null);
 
   return (
-    <div className="projects-container">
-      <div className="projects-hero">
-        <h1 className="gradient-text">My Projects</h1>
-        <p className="intro-text">
-          A collection of my recent work showcasing clean, responsive, and
-          user-friendly web applications built with modern technologies.
-        </p>
-      </div>
+    <section id="projects" className="projects">
+      <div className="projects-container">
+        <motion.div 
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: EASE_OUT }}
+        >
+          <h2 className="section-title">Selected Projects</h2>
+          <p className="section-subtitle">
+            Recent work in web applications, 3D experiences, and interactive systems.
+          </p>
+        </motion.div>
 
-      <div className="projects-list">
-        {projects.map((proj, idx) => (
-          <div key={idx} className="project-card fade-in">
-            <h2 className="project-name">{proj.name}</h2>
-            <p className="project-desc">{proj.desc}</p>
-            <div className="tech-stack">
-              {proj.tech.map((t, i) => (
-                <span key={i} className="tech-item">
-                  {t}
-                </span>
-              ))}
-            </div>
-            <div className="project-links">
-              <a href={proj.github} target="_blank" rel="noopener noreferrer">
-                <Github size={20} /> GitHub
-              </a>
-              {proj.live && (
-                <a href={proj.live} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink size={20} /> Live Demo
+        <div className="projects-grid">
+          {PROJECTS.map((project, i) => (
+            <motion.article
+              key={project.id}
+              className={`project-card ${project.featured ? 'featured' : ''}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.05, ease: EASE_OUT }}
+              onMouseEnter={() => setHoveredId(project.id)}
+              onMouseLeave={() => setHoveredId(null)}
+            >
+              <div className="project-header">
+                <div className="project-icon">
+                  <Folder size={20} />
+                </div>
+                <div className="project-links">
+                  {project.github && (
+                    <a 
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                      aria-label={`${project.title} GitHub`}
+                    >
+                      <Github size={18} />
+                    </a>
+                  )}
+                  {project.live && (
+                    <a 
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                      aria-label={`${project.title} Live Demo`}
+                    >
+                      <ExternalLink size={18} />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <h3 className="project-title">
+                <a 
+                  href={project.live || project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-title-link"
+                >
+                  {project.title}
                 </a>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
+              </h3>
 
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .fade-in {
-          animation: fade-in 0.5s ease-out;
-        }
-      `}</style>
-    </div>
+              <p className="project-description">{project.description}</p>
+
+              <div className="project-tech">
+                {project.technologies.map(tech => (
+                  <span key={tech} className="tech-tag">{tech}</span>
+                ))}
+              </div>
+
+              {project.featured && (
+                <span className="featured-badge">Featured</span>
+              )}
+            </motion.article>
+          ))}
+        </div>
+
+        <motion.div 
+          className="projects-footer"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <a 
+            href="https://github.com/VoidVenerate"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-link"
+          >
+            View all projects on GitHub
+            <ExternalLink size={14} />
+          </a>
+        </motion.div>
+      </div>
+    </section>
   );
 }
