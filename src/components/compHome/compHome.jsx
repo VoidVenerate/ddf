@@ -21,6 +21,9 @@ function FloatingIcosahedron({ mouseX, mouseY }) {
       metalness: 0.1,
       transparent: true,
       opacity: 0.12,
+      metalness: 0.1, // Kept metalness as is
+      transparent: true, // Kept transparent as is
+      opacity: 0.05,
     }), []
   );
 

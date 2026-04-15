@@ -49,6 +49,15 @@ const PROJECTS = [
     github: "https://github.com/VoidVenerate",
     live: "https://exodusmg.com/",
     featured: false
+  },
+  {
+    id: "coalition",
+    title: "Coalition",
+    description: "A singular page for showcasing the use of chart.js and react-chartjs-2 in a React application.",
+    technologies: ["React", "Node.js", "cgart.js"],
+    github: "https://github.com/VoidVenerate",
+    live: "https://coal-ition.netlify.app/",
+    featured: false
   }
 ];
 
