@@ -121,7 +121,7 @@ const CompHome = () => {
   }, []);
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com/VoidVenerate", label: "GitHub" },
+    { icon: Github, href: "https://github.com/Dada-em", label: "GitHub" },
     { icon: Linkedin, href: "https://linkedin.com/in/emmanuel-dada-29986324a", label: "LinkedIn" },
     { icon: Mail, href: "mailto:dadaoluwawamiri@gmail.com", label: "Email" }
   ];
