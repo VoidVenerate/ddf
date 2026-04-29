@@ -19,7 +19,7 @@ const PROJECTS = [
     title: "DaaHub News",
     description: "AI-curated news aggregator with dark mode and gesture navigation. 50,000+ monthly active users.",
     technologies: ["React", "TypeScript", "Framer Motion"],
-    github: "https://github.com/VoidVenerate",
+    github: "https://github.com/Dada-em",
     live: "https://daahub.netlify.app/",
     featured: false
   },
@@ -28,7 +28,7 @@ const PROJECTS = [
     title: "EMR Health System",
     description: "HIPAA-compliant medical records system with role-based access control and analytics dashboard.",
     technologies: ["React", "PostgreSQL", "Express", "Tailwind"],
-    github: "https://github.com/VoidVenerate",
+    github: "https://github.com/Dada-em",
     live: null,
     featured: false
   },
@@ -37,7 +37,7 @@ const PROJECTS = [
     title: "PhoenixPath Wellness",
     description: "Mental health platform with appointment booking and therapist matching algorithm.",
     technologies: ["React", "Node.js", "PostgreSQL"],
-    github: "https://github.com/VoidVenerate",
+    github: "https://github.com/Dada-em",
     live: "https://phoenixpathmhs.com/",
     featured: false
   },
@@ -46,7 +46,7 @@ const PROJECTS = [
     title: "Exodus Music Group",
     description: "Mental health platform with appointment booking and therapist matching algorithm.",
     technologies: ["React", "Node.js", "PostgreSQL"],
-    github: "https://github.com/VoidVenerate",
+    github: "https://github.com/Dada-em",
     live: "https://exodusmg.com/",
     featured: false
   },
@@ -55,7 +55,7 @@ const PROJECTS = [
     title: "Coalition",
     description: "A singular page for showcasing the use of chart.js and react-chartjs-2 in a React application.",
     technologies: ["React", "Node.js", "cgart.js"],
-    github: "https://github.com/VoidVenerate",
+    github: "https://github.com/Dada-em",
     live: "https://coal-ition.netlify.app/",
     featured: false
   }
